@@ -1,5 +1,5 @@
 {
-  "name": "todo-list API",
+  "name": "todo-list",
   "version": "1.0.0",
   "description": "TODO List project with Nodejs, GraphQL, Apollo Server, Prisma",
   "main": "index.js",
@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/anakromeiro/todo-list#readme",
   "dependencies": {
+    "@prisma/client": "^2.26.0",
     "apollo-server": "^2.25.2",
     "graphql": "^15.5.1"
+  },
+  "devDependencies": {
+    "prisma": "^2.26.0"
   }
 }
