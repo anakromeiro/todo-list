@@ -1,0 +1,24 @@
+{
+  "name": "todo-list API",
+  "version": "1.0.0",
+  "description": "TODO List project with Nodejs, GraphQL, Apollo Server, Prisma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anakromeiro/todo-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anakromeiro/todo-list/issues"
+  },
+  "homepage": "https://github.com/anakromeiro/todo-list#readme",
+  "dependencies": {
+    "apollo-server": "^2.25.2",
+    "graphql": "^15.5.1"
+  }
+}
