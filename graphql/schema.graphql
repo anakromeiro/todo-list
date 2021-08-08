@@ -1,20 +1,47 @@
 type Task {
 	id: ID!
 	title: String!
+	frequency: Frequency
 	category: Category
 }
 
 type Category {
 	id: ID!
 	name: String!
+	tasks: [Task!]!
 }
 
 type Log {
 	task: Task!
 }
 
+enum Frequency {	
+	ONCE
+	DAILY
+	WEEKLY
+	MONTHLY
+}
+
+input TaskInput {
+	title: String!
+	frequency: Frequency
+	categoryName: String
+}
+
 type Query {
 	allTasks: [Task]
 	allCategories: [Category]	
 	allLogs: [Log]
+	task(id: Int): Task 
+	findCategoryById(id: Int): Category
+	findAllTasksGroupedByLeter: Task
+}
+
+type Mutation {
+	createTask(input: TaskInput!): Task!
+	createCategory(name: String!): Category!
+	createLog(taskId: Int): Log!
+	updateTask(taskId: Int, input: TaskInput): Task!
+	updateTaskCategory(taskId: Int, categoryId: Int): Task!
+	deleteTask(taskId: Int): Task!	
 }

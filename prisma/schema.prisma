@@ -1,5 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// This is your Prisma schema file learn more about it in the docs: 
+// https://pris.ly/d/prisma-schema
 
 datasource db {
   provider = "sqlite"
@@ -11,24 +11,26 @@ generator client {
 }
 
 model Task {
-  id          Int       @id @default(autoincrement())
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id          Int        @id @default(autoincrement())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
   title       String 
-  category    Category  @relation(fields: [categoryId], references: [id])
+  frequency   String     @default("ONCE")
+  category    Category   @relation(fields: [categoryId], references: [id])
   categoryId  Int
   logs        Log[]
 }
 
 model Category {
   id    Int     @id @default(autoincrement())
-  name  String
+  name  String  @unique
+  // This is a "Prisma-level" relation field, it doesn't manifest as a FK in the DB
   tasks Task[]
 }
 
 model Log {
   registeredAt  DateTime  @unique @default(now())
-  finishedAt    DateTime 
+  finishedAt    DateTime  @default(now())
   task          Task      @relation(fields: [taskId], references: [id])
   taskId        Int
 }
